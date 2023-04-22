@@ -17,6 +17,11 @@ use App\Http\Controllers\BlogController;
 |
 */
 
+
+Route::get('/test', function () {
+    return 'test route';
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,6 +35,8 @@ Route::post('/my-register', [RegisterController::class, 'store']);
 
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog/post/{id}', [BlogController::class, 'show']);
+
+
 
 
 
