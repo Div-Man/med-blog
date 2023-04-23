@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::post('/my-register', [RegisterController::class, 'store']);
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog/post/{id}', [BlogController::class, 'show']);
 
-
+Route::post('/store-comment', [CommentController::class, 'store']);
 
 
 

@@ -97,31 +97,18 @@
                 <div class="comment-form-area">
                   <h4 class="title-main">Leave a Reply</h4>
                   <div class="comment-form-content">
-                    <form action="#">
+                    <form method="post" action="/store-comment">
+                        {{csrf_field()}} 
+                       <input name="post_id" type="hidden" value="{{$post->id}}">
                       <div class="row row-gutter-23">
-                        <div class="col-md-6 col-lg-4">
-                          <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Enter your name *">
-                          </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                          <div class="form-group">
-                            <input class="form-control" type="email" placeholder="Email address *">
-                          </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4">
-                          <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Phone">
+                        <div class="col-md-12">
+                          <div class="form-group mb--0">
+                            <textarea class="form-control" name="text" placeholder="Комментарий"></textarea>
                           </div>
                         </div>
                         <div class="col-md-12">
                           <div class="form-group mb--0">
-                            <textarea class="form-control" placeholder="Content"></textarea>
-                          </div>
-                        </div>
-                        <div class="col-md-12">
-                          <div class="form-group mb--0">
-                            <button type="submit" class="btn-submit">Post Comment</button>
+                            <button type="submit" class="btn-submit">Отправить</button>
                           </div>
                         </div>
                       </div>
