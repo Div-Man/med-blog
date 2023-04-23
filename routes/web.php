@@ -18,10 +18,6 @@ use App\Http\Controllers\BlogController;
 */
 
 
-Route::get('/test', function () {
-    return 'test route';
-});
-
 Route::get('/', function () {
     return view('welcome');
 });

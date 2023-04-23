@@ -84,56 +84,11 @@
 
                 <!--== Start Comment View Item ==-->
                 <div class="comment-view-area">
-                  <h4 class="title-main">Comments(03)</h4>
+                  <h4 class="title-main">Комментарии ({{$post->comments_count}})</h4>
                   <div class="comment-view-content">
-                    <div class="single-comment">
-                      <div class="author-wrap">
-                        <div class="author-pic">
-                          <a href="#/"><img src="{{ asset('/img/blog/author10.png')}}" alt="Image-HasTech"></a>
-                        </div>
-                        <div class="author-info">
-                          <h4 class="title"><a href="team.html">Morgon Dawson</a></h4>
-                          <p>Dental care is the maintenance of healthy teeth and the practice keeping and teeth clean pur sue pleasure rationally encounter consequences that painful. Nor again is there anyone pursue pleasure rationally encounter</p>
-                          <div class="author-info-footer">
-                            <a class="comment-reply" href="#/">Reply</a>
-                            <a class="comment-likes" href="#/"><span>35</span> Likes</a>
-                          </div>
-                            <a class="comment-date" href="#">20 April, 2021</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="single-comment reply-comment">
-                      <div class="author-wrap">
-                        <div class="author-pic">
-                          <a href="#/"><img src="{{ asset('/img/blog/author11.png')}}" alt="Image-HasTech"></a>
-                        </div>
-                        <div class="author-info">
-                          <h4 class="title"><a href="team.html">Alex Stuart</a></h4>
-                          <p>Dental care is the maintenance of healthy teeth and the practice and teeth clean pur sue pleasure rationally encounter consequen painful. Nor again is there anyone pursue pleasure</p>
-                          <div class="author-info-footer">
-                            <a class="comment-reply" href="#/">Reply</a>
-                            <a class="comment-likes" href="#/"><span>10</span> Likes</a>
-                          </div>
-                            <a class="comment-date" href="#">19 April, 2021</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="single-comment">
-                      <div class="author-wrap">
-                        <div class="author-pic">
-                          <a href="#/"><img src="{{ asset('/img/blog/author12.png')}}" alt="Image-HasTech"></a>
-                        </div>
-                        <div class="author-info">
-                          <h4 class="title"><a href="team.html">Sara Taylor</a></h4>
-                          <p>Dental care is the maintenance of healthy teeth and practice keeping the and teeth clean pur sue pleasure rationally encounter consequences are painful. Nor again is there anyone pursue pleasure rationally encounter</p>
-                          <div class="author-info-footer">
-                            <a class="comment-reply" href="#/">Reply</a>
-                            <a class="comment-likes" href="#/"><span>62</span> Likes</a>
-                          </div>
-                            <a class="comment-date" href="#">15 April, 2021</a>
-                        </div>
-                      </div>
-                    </div>
+                      
+                     @include('comments', ['comments' => $comments])         
+
                   </div>
                 </div>
                 <!--== End Comment View Item ==-->
