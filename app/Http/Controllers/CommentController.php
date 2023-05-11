@@ -12,7 +12,6 @@ class CommentController extends Controller {
     public function store(Request $request) {
         if (Auth::user()) {
 
-
             $messages = [
                 'text.required' => 'Введите текст',
                 
@@ -31,7 +30,6 @@ class CommentController extends Controller {
                 'user_id' => auth()->id(),
             ],
         );
-    
             return back();
           
         }

@@ -83,7 +83,7 @@ class FormController extends Controller {
     {
         $verifyUser = UserVerify::where('token', $token)->first();
   
-        $message = 'Sorry your email cannot be identified.';
+        $message = 'К сожалению, ваш адрес электронной почты не может быть идентифицирован.';
         
   
         if(!is_null($verifyUser) ){
@@ -93,9 +93,9 @@ class FormController extends Controller {
                  
                 $verifyUser->user->email_verified_at = 1;
                 $verifyUser->user->save();
-                $message = "Your e-mail is verified. You can now login.";
+                $message = "Ваш адрес электронной почты подтвержден. Теперь вы можете войти.";
             } else {
-                $message = "Your e-mail is already verified. You can now login.";
+                $message = "Ваш адрес электронной почты уже подтвержден. Теперь вы можете войти.";
             }
         }
         

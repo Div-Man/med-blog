@@ -29,7 +29,7 @@ class MyMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'My Mail',
+            subject: 'Подтверждение почты',
         );
     }
 

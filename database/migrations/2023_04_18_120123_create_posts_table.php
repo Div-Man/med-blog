@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('img');
-            $table->string('reading_time');
             $table->text('description');
             $table->foreignId('user_id');
             $table->foreignId('category_blog_id');

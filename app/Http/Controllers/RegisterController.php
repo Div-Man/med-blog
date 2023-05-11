@@ -84,7 +84,7 @@ class RegisterController extends Controller {
         \Mail::to($email)->send(new \App\Mail\MyMail($token));
        
         
-        return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
+        return redirect("/my-login");
     }
 
 }

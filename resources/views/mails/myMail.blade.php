@@ -1,5 +1,5 @@
-<h1>Email Verification Mail</h1>
+<h1>Подтвердите свою почту.</h1>
   
-Please verify your email with bellow link: 
-<a href="{{ url('account/verify', $token)}}">Verify Email</a>
+Пожалуйста, подтвердите свой адрес электронной почты по ссылке:
+<a href="{{ url('account/verify', $token)}}">Подтвердить</a>
 

@@ -35,7 +35,12 @@
             <div class="row">
                 <div class="col-sm-8 m-auto">
                     <div class="section-title text-center">
-                        <h2 class="title">Login</h2>
+                        @if(session('message'))
+                             {!! session('message') !!}
+                        @endif
+                        <h2 class="title">Форма входа</h2>
+                        
+                       
                     </div>
                 </div>
             </div>
@@ -73,7 +78,15 @@
                                                 <label class="form-check-label"  for="defaultCheck1">Запомнить меня</label>
                                             </div>
                                         </div>
-                                        <a class="lost-password" href="#/">Восстановить пароль</a>
+                                        <a class="lost-password" href="/forgot-password">Восстановить пароль</a>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="social-login">
+                                    <p style="color: #333; font-size: 14px; text-align: center;">Войти с помощью социальных сетей</p>
+                                    <div class="social-icons" style="text-align: center;">
+                                        <a href="/login/yandex"><img width="40px" src="{{ asset('/img/free-icon-yandex-226266.png')}}"></a>
+                                        <a href="/login/vkontakte"><img width="40px" src="{{ asset('/img/free-icon-vkontakte-4494517.png')}}"></a>
                                     </div>
                                 </div>
                             </div>

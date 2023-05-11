@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-sm-8 m-auto">
             <div class="section-title text-center">
-              <h2 class="title">Register</h2>
+              <h2 class="title">Регистрация</h2>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@
                     <div class="form-group">
                         <div style="color: red; font-size: 14px; font-weight: bold;">{{$errors->first('name')}}</div>
            
-                      <label for="name">Username <span class="required">*</span></label>
+                      <label for="name">Имя <span class="required">*</span></label>
                       <input id="name" type="text" value="{{ old('name') }}" name="name" class="form-control" >
                      
                        
@@ -59,14 +59,14 @@
                   <div class="col-12">
                     <div class="form-group">
                          <div style="color: red; font-size: 14px; font-weight: bold;">{{$errors->first('email')}}</div>
-                      <label for="email">Email address <span class="required">*</span></label>
+                      <label for="email">Email адрес <span class="required">*</span></label>
                       <input id="email" class="form-control" value="{{ old('email') }}" name="email" type="email">
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group">
                        <div style="color: red; font-size: 14px; font-weight: bold;">{{$errors->first('password')}}</div>
-                      <label for="password">Password <span class="required">*</span></label>
+                      <label for="password">Пароль <span class="required">*</span></label>
                       <input id="password"  name="password" class="form-control" type="password">
                     </div>
                   </div>
@@ -83,6 +83,14 @@
                         <input class="btn-register" type="submit" value="Зарегистрироваться">
                     </div>
                   </div>
+                    <br><br><br>
+                     <div class="social-login">
+                                    <p style="color: #333; font-size: 14px; text-align: center;">Зарегистрироваться с помощью социальных сетей</p>
+                                    <div class="social-icons" style="text-align: center;">
+                                        <a href="/login/yandex"><img width="40px" src="{{ asset('/img/free-icon-yandex-226266.png')}}"></a>
+                                        <a href="/login/vkontakte"><img width="40px" src="{{ asset('/img/free-icon-vkontakte-4494517.png')}}"></a>
+                                    </div>
+                        </div>
                 </div>
               </form>
             </div>

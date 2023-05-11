@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -26,6 +27,7 @@
     <link rel="stylesheet" href="{{ asset('/css/slicknav.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/aos.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/my-style.css') }}">
 
      
     </head>
@@ -64,7 +66,7 @@
                   <img src="{{ asset('/img/icons/time1.png')}}" alt="Image-HasTech">
                 </div>
                 <div class="content">
-                  <p>8 am to 6 pm (Mon - Fri)<br>10 am to 8 pm (Sat - Sun)</p>
+                  <p>с 8:00 до 18:00 (пн - пт)<br>с 10:00 до 20:00 (сб-вс)</p>
                 </div>
               </div>
             </div>
@@ -74,20 +76,16 @@
                   <img src="{{ asset('/img/icons/map.png')}}" alt="Image-HasTech">
                 </div>
                 <div class="content">
-                  <p>258C, Saintpatrick, Main Street <br>Notrth Town, New York</p>
+                  <p>258C, Сентпатрик, Мейн-стрит <br>Северный город, Нью-Йорк</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="header-appointment-button">
-            <a class="appointment-btn" href="contact.html">Appointment</a>
-          </div>
+         
         </div>
       </div>
     </div>
-    <div class="responsive-header-appointment-button">
-      <a class="appointment-btn" href="contact.html">Appointment</a>
-    </div>
+   
     <div class="header-area sticky-header header-default">
       <div class="container">
         <div class="row no-gutter align-items-center position-relative">
@@ -97,47 +95,8 @@
                 <button class="btn-menu" type="button"><i class="fa fa-align-left"></i></button>
                 <div class="header-navigation-area">
                   <ul class="main-menu nav">
-                    <li><a href="index.html"><span>Home</span></a></li>
-                    <li class="has-submenu"><a href="#/"><span>Services</span></a>
-                      <ul class="submenu-nav">
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="service-details.html">Service Details</a></li>
-                      </ul>
-                    </li>
-                    <li class="has-submenu"><a href="#/"><span>Dentist</span></a>
-                      <ul class="submenu-nav">
-                        <li><a href="team.html">Dentist</a></li>
-                        <li><a href="team-details.html">Dentist Details</a></li>
-                      </ul>
-                    </li>
-                    <li class="has-submenu"><a href="#/"><span>Pages</span></a>
-                      <ul class="submenu-nav">
-                        <li class="has-submenu"><a href="#">About Us</a>
-                          <ul class="submenu-nav">
-                            <li><a href="about-us.html">About Us One</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="has-submenu"><a href="/blog"><span>Blog</span></a>
-                      <ul class="submenu-nav submenu-nav-mega">
-                        <li class="mega-menu-item"><a href="#/" class="mega-title">Blog Layout</a>
-                          <ul>
-                            <li><a href="blog.html">Blog Grid</a></li>
-                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                          </ul>
-                        </li>
-                        <li class="mega-menu-item"><a href="#/" class="mega-title">Blog Single Layout</a>
-                          <ul>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                            <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
-                            <li><a href="blog-details-right-sidebar.html">Blog Details Right Sidebar</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href="contact.html"><span>Contact</span></a></li>
+                    <li><a href="/"><span>Главная</span></a></li>
+                    <li class="has-submenu"><a href="/blog"><span>Блог</span></a></li>
                   </ul>
                 </div>
               </div>
@@ -145,8 +104,11 @@
                   
                   @if(Auth::check())
                   <div class="header-action-area">
-                       <span class="btn-login-menu"> Здравствуйте {{Auth::user()->name}} </span>
-                         <a href="/logout"> (Выйти)</a>
+                      <span class="btn-login-menu">{{Auth::user()->name}} </span>
+                      <a href="/logout"> (Выйти) </a>
+                      <span>&nbsp;</span>
+                      <a href="/post/create"><span> Добавить пост</span></a>
+                      
                   </div>
                     @else
                      <div class="header-action-area">
@@ -155,7 +117,6 @@
                         <a class="btn-register-menu" href="/my-register">Регистрация</a>
                     </div>
                   @endif
-               
               </div>
             </div>
           </div>
@@ -163,7 +124,6 @@
       </div>
     </div>
   </header>
-        
         
          @yield('main')
          
@@ -182,7 +142,7 @@
                     <img class="logo-main" src="{{ asset('/img/logo-light.png')}}" alt="Logo" />
                   </a>
                 </div>
-                <p class="desc">Dental care is maintenance of healthy teeth and cleaning mouth for beautiful smile</p>
+                <p class="desc">Стоматологическая помощь – это поддержание здоровых зубов и чистка полости рта для красивой улыбки.</p>
                 <div class="social-icons">
                   <a href="#/"><i class="fa fa-facebook"></i></a>
                   <a href="#/"><i class="fa fa-instagram"></i></a>
@@ -195,66 +155,29 @@
           <div class="col-sm-6 col-lg-3">
             <!--== Start widget Item ==-->
             <div class="widget-item widget-menu">
-              <h4 class="widget-title">Our Services</h4>
+              <h4 class="widget-title">Наши услуги</h4>
               <div class="widget-menu-wrap">
                 <ul class="nav-menu">
-                  <li><a href="services.html">General Dentistry</a></li>
-                  <li><a href="services.html">Oral Surgery</a></li>
-                  <li><a href="services.html">Dental Bridge</a></li>
-                  <li><a href="services.html">Root Canals</a></li>
-                  <li><a href="services.html">Cosmetic Braces</a></li>
-                  <li><a href="services.html">Pediatric Dentistry</a></li>
+                  <li>Общая стоматология</li>
+                  <li>Челюстно-лицевая хирургия</li>
+                  <li>Стоматологический мост</li>
+                  <li>Корневые каналы</li>
+                  <li>Косметические брекеты</li>
+                  <li>Детская стоматология</li>
                 </ul>
               </div>
             </div>
             <!--== End widget Item ==-->
           </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start widget Item ==-->
-            <div class="widget-item widget-menu2">
-              <h4 class="widget-title">Importance</h4>
-              <div class="widget-menu-wrap">
-                <ul class="nav-menu">
-                  <li><a href="about-us.html">Abut us</a></li>
-                  <li><a href="about-us.html">Comapay</a></li>
-                  <li><a href="about-us.html">Terms & Conditions</a></li>
-                  <li><a href="contact.html">24/7 Advance Care</a></li>
-                  <li><a href="services.html">Emergency Centre</a></li>
-                  <li><a href="contact.html">Payment System</a></li>
-                </ul>
-              </div>
-            </div>
-            <!--== End widget Item ==-->
-          </div>
-          <div class="col-sm-6 col-lg-3">
-            <!--== Start widget Item ==-->
-            <div class="widget-item widget-contact">
-              <h4 class="widget-title">Contact us</h4>
-              <div class="widget-contact-wrap">
-                <ul>
-                  <li>256B, West Site House Main Town, New York</li>
-                  <li><a href="tel:+98745612301">+98745 612 301</a><br><a href="tel:+95874102201">+95874 102 201</a></li>
-                  <li><a href="mailto:info@example.com">info@example.com</a><br><a href="mailto:www.predent.com">www.predent.com</a></li>
-                </ul>
-              </div>
-            </div>
-            <!--== End widget Item ==-->
-          </div>
+          
+      
         </div>
       </div>
     </div>
     <!--== End Footer Main ==-->
 
     <!--== Start Footer Bottom ==-->
-    <div class="footer-bottom">
-      <div class="container pt--0 pb--0">
-        <div class="row">
-          <div class="col-12">
-            <p class="copyright">© 2021 Made with <i class="fa fa-heart"></i> by <a target="_blank" href="https://www.hasthemes.com"> HasThemes</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <!--== End Footer Bottom ==-->
   </footer>
   <!--== End Footer Area Wrapper ==-->

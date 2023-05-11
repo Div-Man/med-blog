@@ -10,13 +10,14 @@ function tree($comments, $parent_id = 0, $level = 0) {
                         <a href="#/"><img src="{{ asset('/img/blog/author11.png')}}" alt="Image-HasTech"></a>
                     </div>
                     <div class="author-info">
-                        <h4 class="title"><a href="team.html">Alex Stuart</a></h4>
-                        <p><?php echo $comment['text']; ?></p>
+                        <h4 class="title">{{$comment['commenter_name']}}</h4>
+                        <p>{{$comment['text']}}</p>
                         <div class="author-info-footer">
                             <a class="comment-reply" onclick="showCommentReply(this); return false;"href="#/">Ответить</a>
-                            <a class="comment-likes" href="#/"><span>10</span> Likes</a>
+                            
                         </div>
-                        <a class="comment-date" href="#">19 April, 2021</a>
+                       
+                        <a class="comment-date" href="#">{{ Carbon\Carbon::parse($comment['created_at'])->format('d.m.Y')}}</a>
                     </div>
                 </div>
                        <div class="comment-form-area">

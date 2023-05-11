@@ -39,15 +39,12 @@
           <div class="col-lg-8 order-0 order-lg-2">
             <div class="blog-details-item">
               <div class="inner-content">
+                
                 <div class="thumb">
-                  <img src="{{ asset('/img/blog/details.jpg')}}" alt="Image-HasTech">
-                </div>
+                      <a href="/blog/post/{{ $post->id}}"><img width="600px" height="600px" src="{{ asset($post->img)}}" alt="Image-HasTech"></a>
+                    </div>
                 <div class="content">
-                  <ul class="meta">
-                    <li class="post-time"><a href="blog.html">{{$post->reading_time}}</a></li>
-                    <li class="post-sep"> - </li>
-                    <li class="post-comment"><a href="blog.html">25 Comments</a></li>
-                  </ul>
+                 
                   <h2 class="title">{{$post->title}}</h2>
                   <div class="author-info">
                     <a class="author-name" href="blog.html">
@@ -55,30 +52,39 @@
                       <span class="name">{{$post->user->name}}</span>
                     </a>
                     <a class="post-date" href="blog.html">
-                      <span class="date">20 April, 2021</span>
+                      <span class="date">{{ Carbon\Carbon::parse($post->created_at)->format('d.m.Y')}}</span>
                     </a>
                   </div>
                   
                   
-                  <p>{{$post->description}}</p>
+                  <p>{!! $post->description !!}</p>
                   
-                  
-                  
-                  
-                  <p>Dental care is the maintenance of healthy teeth and the practice of keeping mouth and teeth clean pur sue pleasure rationally encounter consequences that are extre painful. Nor again is there anyone pursue pleasure rationally encounter</p>
                   <div class="blog-details-footer">
-                    <div class="social-icons">
-                      <span>Share -</span>
-                      <a href="#/"><i class="fa fa-facebook"></i></a>
-                      <a href="#/"><i class="fa fa-instagram"></i></a>
-                      <a href="#/"><i class="fa fa-twitter"></i></a>
-                    </div>
+                  
                     <div class="tag-conent">
-                      <span>Tags -</span>
-                      <a href="#/">Dental,</a>
-                      <a href="#/">Dentist,</a>
-                      <a href="#/">Medical</a>
+                      <span>Теги-</span>
+                        @foreach($post->tags as $tag)
+                             <a href="/search/tag/{{$tag->name}}">{{$tag->name}}</a>
+                        @endforeach
+                        
+                        
                     </div>
+                    
+                      @author($post)
+                        <div class="">
+                            <a class="btn btn-outline-warning" style="font-weight: bold; margin-right: 15px; font-size: 15px;" href="/post/edit/{{$post->id}}">Редактировать</a> 
+                            <div style="display: inline-block;">
+                                <form action="/post/delete/{{$post->id}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                     <button type="submit" class="btn btn-outline-danger">Удалить</button>
+                                </form>
+                            </div>    
+                            
+                            
+
+                         </div>
+                      @endauthor
                   </div>
                 </div>
 
@@ -95,7 +101,7 @@
 
                 <!--== Start Comment Item ==-->
                 <div class="comment-form-area">
-                  <h4 class="title-main">Leave a Reply</h4>
+                  <h4 class="title-main">Оставьте ответ</h4>
                   <div class="comment-form-content">
                     <form method="post" action="/store-comment">
                         {{csrf_field()}} 
@@ -119,128 +125,10 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 order-2 order-md-1">
-            <!--== Start Sidebar Wrapper ==-->
-            <div class="sidebar-wrapper sidebar-right-margin">
-              <!--== Start Sidebar Item ==-->
-              <div class="sidebar-item" data-bg-img="{{ asset('/img/photos/sidebar1.jpg')}}">
-                <h4 class="sidebar-title">Search</h4>
-                <div class="sidebar-body">
-                  <div class="sidebar-search-form">
-                    <form action="#">
-                      <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Keywords">
-                        <button type="submit" class="btn-src"><i class="fa fa-search"></i></button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <!--== End Sidebar Item ==-->
-
-              <!--== Start Sidebar Item ==-->
-              <div class="sidebar-item category-sidebar-item" data-bg-img="{{ asset('/img/photos/sidebar2.jpg')}}">
-                <h4 class="sidebar-title">Categories</h4>
-                <div class="sidebar-body">
-                  <div class="sidebar-category-sub-menu">
-                    <ul>
-                      <li><a href="services.html">General Dentistry <span>(35)</span></a></li>
-                      <li><a href="services.html">Cosmetic Braces <span>(25)</span></a></li>
-                      <li><a href="services.html">Dental Bridge <span>(18)</span></a></li>
-                      <li><a href="services.html">Root Canals <span>(10)</span></a></li>
-                      <li><a href="services.html">Oral Surgery <span>(39)</span></a></li>
-                      <li><a href="services.html">Pediatric Dentistry <span>(42)</span></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <!--== End Sidebar Item ==-->
-
-              <!--== Start Sidebar Item ==-->
-              <div class="sidebar-item offer-sidebar-item">
-                <div class="sidebar-body">
-                  <div class="sidebar-offer-thumb">
-                    <a href="contact.html"><img src="{{ asset('/img/photos/offers.jpg')}}" alt="Image-HasTech"></a>
-                  </div>
-                </div>
-              </div>
-              <!--== End Sidebar Item ==-->
-
-              <!--== Start Sidebar Item ==-->
-              <div class="sidebar-item recent-post-sidebar-item" data-bg-img="{{ asset('/img/photos/sidebar3.jpg')}}">
-                <h4 class="sidebar-title">Recent Post</h4>
-                <div class="sidebar-body">
-                  <!--== Start Blog Item ==-->
-                  <div class="sidebar-post-item">
-                    <div class="inner-content">
-                      <div class="thumb">
-                        <a href="blog-details.html"><img src="{{ asset('/img/blog/small1.jpg')}}" alt="Image-HasTech"></a>
-                      </div>
-                      <div class="content">
-                        <ul class="meta">
-                          <li><a class="date" href="blog.html">20 April, 2021</a></li>
-                        </ul>
-                        <h4 class="title"><a href="blog-details.html">Dental Braces Treatment</a></h4>
-                      </div>
-                    </div>
-                  </div>
-                  <!--== End Blog Item ==-->
-
-                  <!--== Start Blog Item ==-->
-                  <div class="sidebar-post-item">
-                    <div class="inner-content">
-                      <div class="thumb">
-                        <a href="blog-details.html"><img src="{{ asset('/img/blog/small2.jpg')}}" alt="Image-HasTech"></a>
-                      </div>
-                      <div class="content">
-                        <ul class="meta">
-                          <li><a class="date" href="blog.html">18 April, 2021</a></li>
-                        </ul>
-                        <h4 class="title"><a href="blog-details.html">Dental Cosmetic Treatment</a></h4>
-                      </div>
-                    </div>
-                  </div>
-                  <!--== End Blog Item ==-->
-
-                  <!--== Start Blog Item ==-->
-                  <div class="sidebar-post-item">
-                    <div class="inner-content">
-                      <div class="thumb">
-                        <a href="blog-details.html"><img src="{{ asset('/img/blog/small3.jpg')}}" alt="Image-HasTech"></a>
-                      </div>
-                      <div class="content">
-                        <ul class="meta">
-                          <li><a class="date" href="blog.html">15 April, 2021</a></li>
-                        </ul>
-                        <h4 class="title"><a href="blog-details.html">Protect your by Checkup</a></h4>
-                      </div>
-                    </div>
-                  </div>
-                  <!--== End Blog Item ==-->
-                </div>
-              </div>
-              <!--== End Sidebar Item ==-->
-
-              <!--== Start Sidebar Item ==-->
-              <div class="sidebar-item sidebar-tag-item mb--0" data-bg-img="{{ asset('/img/photos/sidebar4.jpg')}}">
-                <h4 class="sidebar-title">Tags</h4>
-                <div class="sidebar-body">
-                  <div class="sidebar-tag-items">
-                    <a href="services.html">Dental</a>
-                    <a href="services.html">Root Canals</a>
-                    <a href="services.html">Whitening</a>
-                    <a href="services.html">Cosmetic</a>
-                    <a href="services.html">Cavity</a>
-                    <a href="services.html">Orthodontist</a>
-                    <a href="services.html">Dentist</a>
-                    <a href="services.html">Healthcare</a>
-                  </div>
-                </div>
-              </div>
-              <!--== End Sidebar Item ==-->
-            </div>
-            <!--== End Sidebar Wrapper ==-->
-          </div>
+            
+            @include('layouts.leftBar')
+           @yield('leftBar')
+            
         </div>
       </div>
     </section>
@@ -299,30 +187,7 @@
     <!--== End Brand Logo Area Wrapper ==-->
 
     <!--== Start News Letter Area Wrapper ==-->
-    <section class="newsletter-area bg-overlay bg-overlay-theme-color parallax" data-aos="fade-up" data-speed=".8" data-bg-img="{{ asset('/img/photos/bg2.jpg')}}">
-      <div class="container pt--0 pb--0">
-        <div class="newsletter-content-wrap">
-          <div class="row align-items-center">
-            <div class="col-md-5">
-              <div class="newsletter-content">
-                <div class="section-title section-title-light mb--0">
-                  <h5 class="sub-title">NEWSLETTER</h5>
-                  <h2 class="title mb--0">Subscribe our Newsletter</h2>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-7">
-              <div class="newsletter-form">
-                <form>
-                  <input type="email" class="form-control" placeholder="Enter Your email address">
-                  <button class="btn-submit" type="submit">Subscribe</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
     <!--== End News Letter Area Wrapper ==-->
   </main>
 
