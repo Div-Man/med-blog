@@ -8,20 +8,19 @@ use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 
-class CheckPostOwner
-{
+class CheckPostOwner {
+
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
-    {
-         $postId = $request->id;
-         $userId = Auth::id();
-         
+    public function handle(Request $request, Closure $next): Response {
+        $postId = $request->id;
+        $userId = Auth::id();
+
         // получаем пост из БД
-        $post = Post::find($postId);
+        $post = Post::findOrFail($postId);
 
         // проверяем, является ли пользователь владельцем поста
         if ($post->user_id !== $userId) {
@@ -30,4 +29,5 @@ class CheckPostOwner
         }
         return $next($request);
     }
+
 }
