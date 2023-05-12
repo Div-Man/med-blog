@@ -90,9 +90,10 @@
 
                 <!--== Start Comment View Item ==-->
                 <div class="comment-view-area">
+                   
                   <h4 class="title-main">Комментарии ({{$post->comments_count}})</h4>
+                 
                   <div class="comment-view-content">
-                      
                      @include('comments', ['comments' => $comments])         
 
                   </div>
@@ -102,6 +103,13 @@
                 <!--== Start Comment Item ==-->
                 <div class="comment-form-area">
                   <h4 class="title-main">Оставьте ответ</h4>
+                 @if (\Session::has('error'))
+                    <div class="alert alert-danger">
+                        <ul>
+                            <li>{!! \Session::get('error') !!}</li>
+                        </ul>
+                    </div>
+                @endif
                   <div class="comment-form-content">
                     <form method="post" action="/store-comment">
                         {{csrf_field()}} 

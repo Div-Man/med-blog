@@ -192,8 +192,8 @@ class BlogController extends Controller {
        
         Storage::disk('local')->delete($image_path);
         
-        DB::table('comments')->where('post_id', '=', $post_id)->delete();
-        DB::table('post_tag')->where('post_id', '=', $post_id)->delete();
+        //DB::table('comments')->where('post_id', '=', $post_id)->delete();
+        //DB::table('post_tag')->where('post_id', '=', $post_id)->delete();
         Post::destroy($post_id);
         
          return redirect('/blog');
